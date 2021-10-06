@@ -17,6 +17,9 @@ export const cryptoApi = createApi({
         getCryptos: builder.query({             //getCryptos-> name of the end point
             query: (count) => createRequest(`/coins?limit=${count}`),
         }),
+        getExchanges: builder.query({             //getCryptos-> name of the end point
+            query: (count) => createRequest(`/exchanges`),
+        }),
         getCryptoDetails: builder.query({             //getCryptos-> name of the end point
             query: (coinId) => createRequest(`/coin/${coinId}`),
         }),
@@ -29,5 +32,6 @@ export const cryptoApi = createApi({
 export const {
     useGetCryptosQuery,    //redux toolkit creates hook so we can call instantly to call all the data, it gives loading states, success states.
     useGetCryptoDetailsQuery,
-    useGetCryptoHistoryQuery
+    useGetCryptoHistoryQuery,
+    useGetExchangesQuery
 } = cryptoApi;
